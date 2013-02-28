@@ -1,4 +1,15 @@
+/*
+ Author: Harm Reck
+ 
+ This sketch lets you switch Cheap RCOutlets via the Serialport.
+ 
+ See http://h-reg.blogspot.de/2013/02/hain-schalten-und-walten.html for more details and explanations
 
+
+ This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 Germany License. To view a copy of this license, 
+ visit http://creativecommons.org/licenses/by-sa/3.0/de/ or send a letter to 
+ Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
+*/
 
 #include <RCSwitch.h>
 
