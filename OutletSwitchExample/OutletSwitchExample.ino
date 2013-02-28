@@ -25,13 +25,18 @@ void loop() {
     char buffer[20];
 
     int numRead = Serial.readBytesUntil('\n',buffer,20);
-    
+    Serial.print("received: ");
+    Serial.println(buffer);
     char * tok;
+    tok = strtok(buffer, ":");
+    Serial.print("Token is: ");
+    Serial.println(tok);
 
     
     
     switch(tok[0]){
      case 'S':
+      Serial.println("processing SwitchCommand");
       processSwitch(buffer); 
       
     }
@@ -45,7 +50,7 @@ void loop() {
 
 
 void processSwitch(char *cmdString){
- if(strlen(cmdString) == 9){
+ 
       
 
       char houseCode[6] = "";
@@ -53,18 +58,24 @@ void processSwitch(char *cmdString){
         houseCode[i-2] = cmdString[i];
       }
       houseCode[6] = '\0';
+      Serial.print("Housecode: ");
+      Serial.println(houseCode);
 
       int deviceNumber = cmdString[7]-48;  
+      Serial.print("devicenumber");
+      Serial.println(deviceNumber, DEC);
       int action = cmdString[8]-48; 
       switch(action){
       case ON:
+        Serial.println("switching ON");
         mySwitch.switchOn(houseCode, deviceNumber);
         break;
       case OFF:
+        Serial.println("switching OFF");
         mySwitch.switchOff(houseCode, deviceNumber);
         break;
       }
-    } 
+    
   
 }
 
